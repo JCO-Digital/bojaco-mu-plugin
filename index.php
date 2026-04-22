@@ -14,8 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-const BOJACO_MU_PLUGIN_DIASBLED_MODULES = apply_filters( 'bojaco_mu_plugin_disabled_modules', [] );
+const BOJACO_MU_PLUGIN_DISABLED_MODULES = apply_filters( 'bojaco_mu_plugin_disabled_modules', [] );
 
-if ( ! in_array( 'user-rest-api', BOJACO_MU_PLUGIN_DIASBLED_MODULES, true ) ) {
+if ( ! in_array( 'user-rest-api', BOJACO_MU_PLUGIN_DISABLED_MODULES, true ) ) {
 	require_once 'modules/user-rest-api.php';
 }
