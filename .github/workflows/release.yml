@@ -17,9 +17,6 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
-          # We don't strictly need composer here if we don't have external dependencies,
-          # but keeping it doesn't hurt.
-          tools: composer:v2
 
       - name: Build Binaries
         run: make build
