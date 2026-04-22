@@ -12,14 +12,24 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - name: Setup PHP with tools
+
+      - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
+          # We don't strictly need composer here if we don't have external dependencies,
+          # but keeping it doesn't hurt.
           tools: composer:v2
+
       - name: Build Binaries
-        run: make
+        run: make build
+
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
           artifacts: "dist/*"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Recommended: use the tag name as the release name
+          name: Release ${{ github.ref_name }}
+          # Allow updating the release if the tag is re-pushed (optional)
+          allowUpdates: true
