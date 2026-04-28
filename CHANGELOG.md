@@ -1,6 +1,13 @@
 # Changelog
 
-## 1.0.0
+### 1.0.1 (2026-04-28)
+
+#### Bug Fixes
+
+- config: replace const with define for constant declaration (7a6c2ff)
+- mu-plugin: correct misspelled constant BOJACO_MU_PLUGIN_DISABLED_MODULES (a2ffcea)
+
+## v1.0.0 (2026-04-22)
 
 #### Features
 
@@ -15,6 +22,7 @@
 
 #### Maintenance
 
+- plugin: bump plugin version to 1.0.0 (dddca8f)
 - release: remove composer.json, add foonver.toml and version.txt, update release workflow (9f04147)
 - modules: rename rest-api module to user-rest-api and update loader (b69934a)
 
