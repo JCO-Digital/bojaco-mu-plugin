@@ -1,6 +1,12 @@
 # Changelog
 
-### 1.0.2 (2026-04-28)
+### 1.0.3 (2026-04-28)
+
+#### Bug Fixes
+
+- api: restrict user endpoints via rest_pre_dispatch (69d5555)
+
+### v1.0.2 (2026-04-28)
 
 #### Maintenance
 
