@@ -1,6 +1,13 @@
 # Changelog
 
-### 1.0.1 (2026-04-28)
+### 1.0.2 (2026-04-28)
+
+#### Maintenance
+
+- config: enable version synchronization for index.php (063d66f)
+- version: bump plugin version to 1.0.1 (693bef7)
+
+### v1.0.1 (2026-04-28)
 
 #### Bug Fixes
 
