@@ -1,6 +1,12 @@
 # Changelog
 
-### 1.0.3 (2026-04-28)
+### 1.0.4 (2026-04-28)
+
+#### Bug Fixes
+
+- api: allow CORS OPTIONS requests and add coding standards config (799f447)
+
+### v1.0.3 (2026-04-28)
 
 #### Bug Fixes
 
