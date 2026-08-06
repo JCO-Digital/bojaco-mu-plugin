@@ -1,6 +1,12 @@
 # Changelog
 
-### 1.0.4 (2026-04-28)
+## 1.1.0 (2026-08-06)
+
+#### Features
+
+- Add staging force login module (c444869)
+
+### v1.0.4 (2026-04-28)
 
 #### Bug Fixes
 
