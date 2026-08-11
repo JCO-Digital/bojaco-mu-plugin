@@ -11,6 +11,30 @@ add_action(
 	'template_redirect',
 	function () {
 		if ( function_exists( 'wp_get_environment_type' ) && 'staging' === wp_get_environment_type() ) {
+			$bypass = false;
+
+			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- This is a simple URL parameter for bypassing staging redirect.
+			if ( isset( $_GET['bojaco_staging_bypass'] ) ) {
+				$bypass        = true;
+				$cookie_path   = defined( 'COOKIEPATH' ) ? COOKIEPATH : '/';
+				$cookie_domain = defined( 'COOKIE_DOMAIN' ) ? COOKIE_DOMAIN : '';
+
+				setcookie(
+					'wordpress_bojaco_staging_bypass',
+					'1',
+					time() + 86400,
+					$cookie_path,
+					$cookie_domain,
+					is_ssl()
+				);
+			} elseif ( isset( $_COOKIE['wordpress_bojaco_staging_bypass'] ) ) {
+				$bypass = true;
+			}
+
+			if ( $bypass ) {
+				return;
+			}
+
 			if ( ! is_user_logged_in() ) {
 				$login_url   = wp_login_url();
 				$current_url = home_url( wp_unslash( $_SERVER['REQUEST_URI'] ) );
