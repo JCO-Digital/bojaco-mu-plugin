@@ -1,6 +1,12 @@
 # Changelog
 
-## 1.1.0 (2026-08-06)
+### 1.1.1 (2026-08-11)
+
+#### Bug Fixes
+
+- core: defer module loading and apply coding standards (6bd9e58)
+
+## v1.1.0 (2026-08-06)
 
 #### Features
 
