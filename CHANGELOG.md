@@ -1,6 +1,12 @@
 # Changelog
 
-### 1.1.1 (2026-08-11)
+## 1.2.0 (2026-08-11)
+
+#### Features
+
+- staging: allow bypass via query parameter and cookie (ae8507a)
+
+### v1.1.1 (2026-08-11)
 
 #### Bug Fixes
 
