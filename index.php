@@ -14,12 +14,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'BOJACO_MU_PLUGIN_DISABLED_MODULES', apply_filters( 'bojaco_mu_plugin_disabled_modules', array() ) );
+add_action(
+	'after_setup_theme',
+	function () {
+		$disabled_modules = apply_filters( 'bojaco_mu_plugin_disabled_modules', array() );
 
-if ( ! in_array( 'user-rest-api', BOJACO_MU_PLUGIN_DISABLED_MODULES, true ) ) {
-	require_once 'modules/user-rest-api.php';
-}
+		if ( ! in_array( 'user-rest-api', $disabled_modules, true ) ) {
+			require_once 'modules/user-rest-api.php';
+		}
 
-if ( ! in_array( 'staging-force-login', BOJACO_MU_PLUGIN_DISABLED_MODULES, true ) ) {
-	require_once 'modules/staging-force-login.php';
-}
+		if ( ! in_array( 'staging-force-login', $disabled_modules, true ) ) {
+			require_once 'modules/staging-force-login.php';
+		}
+	}
+);
