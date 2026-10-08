@@ -26,5 +26,9 @@ add_action(
 		if ( ! in_array( 'staging-force-login', $disabled_modules, true ) ) {
 			require_once 'modules/staging-force-login.php';
 		}
+
+		if ( ! in_array( 'jco-file-mods', $disabled_modules, true ) ) {
+			require_once 'modules/jco-file-mods.php';
+		}
 	}
 );
