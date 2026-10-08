@@ -3,7 +3,7 @@
  * Plugin Name: Bojaco MU Plugin
  * Plugin URI:  https://github.com/JCO-Digital/bojaco-mu-plugin
  * Description: A custom MU plugin
- * Version:     1.2.0
+ * Version:     1.3.0
  * Author:      J&Co Digital
  * Author URI:  https://jco.fi
  * License:     GPL2

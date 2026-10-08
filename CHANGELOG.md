@@ -1,6 +1,12 @@
 # Changelog
 
-## 1.2.0 (2026-08-11)
+## 1.3.0 (2026-10-08)
+
+#### Features
+
+- file-mods: allow file mods for @jco.fi admins (e47d36c)
+
+## v1.2.0 (2026-08-11)
 
 #### Features
 
@@ -63,7 +69,8 @@
 - release: remove composer.json, add foonver.toml and version.txt, update release workflow (9f04147)
 - modules: rename rest-api module to user-rest-api and update loader (b69934a)
 
-### Misc
+#### Misc
+
 - Unset all /wp/v2/users endpoints (9134d41)
 - first commit (afe4add)
 
