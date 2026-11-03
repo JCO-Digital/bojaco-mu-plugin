@@ -30,5 +30,9 @@ add_action(
 		if ( ! in_array( 'jco-file-mods', $disabled_modules, true ) ) {
 			require_once 'modules/jco-file-mods.php';
 		}
+
+		if ( ! in_array( 'login-rate-limit', $disabled_modules, true ) ) {
+			require_once 'modules/login-rate-limit.php';
+		}
 	}
 );
