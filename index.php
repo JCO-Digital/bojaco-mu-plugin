@@ -38,5 +38,9 @@ add_action(
 		if ( ! in_array( 'disable-password-reset', $disabled_modules, true ) ) {
 			require_once 'modules/disable-password-reset.php';
 		}
+
+		if ( ! in_array( 'password-reset-protection', $disabled_modules, true ) ) {
+			require_once 'modules/password-reset-protection.php';
+		}
 	}
 );
