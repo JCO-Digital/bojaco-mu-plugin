@@ -68,7 +68,7 @@ define( 'BOJACO_DISABLE_PASSWORD_RESET', false ); // Keep password resets enable
 
 Protects password resets against spam bots:
 
-- **Proof of work:** the lost password form on `wp-login.php` contains a signed challenge that the browser solves with JavaScript before the form can be submitted (similar to ALTCHA). This takes about a second, needs no user interaction and uses no third-party services or cookies. Each solution can only be used once. Users without JavaScript can't reset their password.
+- **Proof of work:** the lost password form on `wp-login.php` contains a signed challenge that the browser solves with JavaScript before the form can be submitted (similar to ALTCHA). This takes about three seconds on a desktop (longer on phones), needs no user interaction and uses no third-party services or cookies. Each solution can only be used once. Users without JavaScript can't reset their password.
 - **Per-account throttle:** limits how many reset emails one account can receive. This applies to every form that calls `retrieve_password()` (e.g. WooCommerce), not only `wp-login.php`. Users who can edit the account (admins) are not throttled.
 
 Defaults: challenges are valid for 30 minutes, and an account can receive 3 reset emails per hour.

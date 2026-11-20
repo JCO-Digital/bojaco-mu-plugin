@@ -26,7 +26,7 @@ function bojaco_password_reset_protection_settings() {
 	$settings = apply_filters(
 		'bojaco_password_reset_protection_settings',
 		array(
-			'max_number' => 200000,                 // Upper bound of the proof-of-work search space (difficulty).
+			'max_number' => 1600000,                // Upper bound of the proof-of-work search space (difficulty). ~3 s on average on a desktop.
 			'ttl'        => 30 * MINUTE_IN_SECONDS, // How long a challenge is valid.
 			'max_emails' => 3,                      // Reset emails allowed per account within the window.
 			'window'     => HOUR_IN_SECONDS,        // Window in which reset emails are counted.
@@ -173,10 +173,14 @@ add_action(
 			);
 		}
 		printf(
-			'<input type="hidden" name="bojaco_pow_number" value="" data-max="%d" />',
-			(int) $challenge['max_number']
+			'<input type="hidden" name="bojaco_pow_number" value="" data-max="%1$d" data-label="%2$s" />',
+			(int) $challenge['max_number'],
+			esc_attr__( 'Verifying…' )
 		);
 		echo '<noscript><p>' . esc_html__( 'JavaScript is required to reset your password.' ) . '</p></noscript>';
+
+		// Make the pending state visible even if a theme restyles the login buttons.
+		echo '<style>.bojaco-pow-pending,.bojaco-pow-pending:hover,.bojaco-pow-pending:focus{opacity:.5!important;cursor:wait!important;}</style>';
 
 		$script = <<<'JS'
 (function () {
@@ -187,7 +191,22 @@ add_action(
 	var challenge = form.querySelector('input[name="bojaco_pow_challenge"]').value;
 	var max = parseInt(input.getAttribute('data-max'), 10);
 	var submit = form.querySelector('[type="submit"]');
-	if (submit) { submit.disabled = true; }
+	var isInput = submit && submit.tagName === 'INPUT';
+	var label = submit ? (isInput ? submit.value : submit.textContent) : '';
+	function setLabel(text) { if (isInput) { submit.value = text; } else { submit.textContent = text; } }
+	if (submit) {
+		submit.disabled = true;
+		submit.classList.add('disabled', 'bojaco-pow-pending');
+		submit.setAttribute('aria-busy', 'true');
+		setLabel(input.getAttribute('data-label') || label);
+	}
+	function done() {
+		if (!submit) { return; }
+		submit.disabled = false;
+		submit.classList.remove('disabled', 'bojaco-pow-pending');
+		submit.removeAttribute('aria-busy');
+		setLabel(label);
+	}
 
 	var K = [], H = [];
 	(function () {
@@ -242,7 +261,7 @@ add_action(
 		for (; number <= end; number++) {
 			if (sha256(salt + number) === challenge) {
 				input.value = String(number);
-				if (submit) { submit.disabled = false; }
+				done();
 				return;
 			}
 		}
