@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.4.0 (2026-11-20)
+
+#### Features
+
+- security: add password reset protection module (6a6be23)
+- security: add disable password reset module (743e483)
+- security: add login rate limit module (04d4bc6)
+
+#### Documentation
+
+- readme: update foonver config filename in project tree (3550f30)
+- readme: document all modules (b0c8431)
+
+#### Maintenance
+
+- config: rename foonver.toml to .foonver.toml (683e410)
+
 ## 1.3.0 (2026-10-08)
 
 #### Features
