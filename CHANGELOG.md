@@ -1,5 +1,11 @@
 # Changelog
 
+### 1.4.2 (2026-11-20)
+
+#### Bug Fixes
+
+- security: disable reset button only after the form has rendered (a9eb5ac)
+
 ### 1.4.1 (2026-11-20)
 
 #### Bug Fixes
