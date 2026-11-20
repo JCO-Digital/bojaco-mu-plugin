@@ -182,8 +182,15 @@ add_action(
 		// Make the pending state visible even if a theme restyles the login buttons.
 		echo '<style>.bojaco-pow-pending,.bojaco-pow-pending:hover,.bojaco-pow-pending:focus{opacity:.5!important;cursor:wait!important;}</style>';
 
+		// The form hook runs before the submit button is rendered, so start once the DOM is ready.
 		$script = <<<'JS'
-(function () {
+(function (init) {
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', init);
+	} else {
+		init();
+	}
+})(function () {
 	var input = document.querySelector('input[name="bojaco_pow_number"]');
 	if (!input) { return; }
 	var form = input.form;
@@ -268,7 +275,7 @@ add_action(
 		if (number <= max) { setTimeout(solve, 0); }
 	}
 	solve();
-})();
+});
 JS;
 
 		wp_print_inline_script_tag( $script );
