@@ -34,5 +34,9 @@ add_action(
 		if ( ! in_array( 'login-rate-limit', $disabled_modules, true ) ) {
 			require_once 'modules/login-rate-limit.php';
 		}
+
+		if ( ! in_array( 'disable-password-reset', $disabled_modules, true ) ) {
+			require_once 'modules/disable-password-reset.php';
+		}
 	}
 );
