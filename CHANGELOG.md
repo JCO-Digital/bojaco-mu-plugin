@@ -1,5 +1,11 @@
 # Changelog
 
+### 1.4.1 (2026-11-20)
+
+#### Bug Fixes
+
+- security: raise password reset proof-of-work difficulty (5759abd)
+
 ## 1.4.0 (2026-11-20)
 
 #### Features
@@ -90,4 +96,3 @@
 
 - Unset all /wp/v2/users endpoints (9134d41)
 - first commit (afe4add)
-
