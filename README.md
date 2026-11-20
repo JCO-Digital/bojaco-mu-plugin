@@ -87,7 +87,7 @@ Defaults: challenges are valid for 30 minutes, and an account can receive 3 rese
 │   └── merge.php       # PHP script to flatten dependencies
 ├── index.php           # Plugin entry point
 ├── Makefile            # Build automation
-├── foonver.toml        # Release/version configuration
+├── .foonver.toml       # Release/version configuration
 └── version.txt         # Current version
 ```
 
